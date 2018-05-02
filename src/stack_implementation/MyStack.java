@@ -36,21 +36,15 @@ public class MyStack<T> implements IStack<T>{  //modified class name due to the 
 		else throw new EmptyStackException();
 	}
 	
+	public void push(T t) {
+		stack.add(t);
+	}
 	
 	public int size() {
 		return stack.size();
 	}
 	
-	public void push(T t) {
-		stack.add(t);
-	}
 	
-	public void addElement(T t) {
-		stack.add(t);
-	}
 	
-	public T getElement() {
-		return (T) stack.get(size() - 1);
-	}
 	
 }
