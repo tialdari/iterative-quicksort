@@ -1,0 +1,56 @@
+package stack_implementation;
+
+import java.util.ArrayList;
+import stack_implementation.EmptyStackException;
+
+public class MyStack<T> implements IStack<T>{  //modified class name due to the existence of a Stack<T> class in java API already
+	
+	private ArrayList<T> stack;
+	
+	
+	public MyStack() {
+		stack = new ArrayList<T>();
+	}
+
+	
+	public ArrayList<T> getStack() {
+		return stack;
+	}
+
+
+	public void setStack(ArrayList<T> stack) {
+		this.stack = stack;
+	}
+
+	public boolean isEmpty() {
+		if(stack.size() == 0) return true;
+		else return false;
+	}
+	
+			
+	public T pop() throws EmptyStackException{
+		
+		int lastIndex = stack.size() - 1;
+		
+		if(!isEmpty()) return stack.get(lastIndex);
+		else throw new EmptyStackException();
+	}
+	
+	
+	public int size() {
+		return stack.size();
+	}
+	
+	public void push(T t) {
+		stack.add(t);
+	}
+	
+	public void addElement(T t) {
+		stack.add(t);
+	}
+	
+	public T getElement() {
+		return (T) stack.get(size() - 1);
+	}
+	
+}
