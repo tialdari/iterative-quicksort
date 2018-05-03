@@ -14,15 +14,7 @@ public class Main {
 		CSVparser parser = new CSVparser("z3data11.csv");
 		parser.read();
 		
-//		for(Integer number : parser.getFileData()) {
-//			System.out.print(number + " ");
-//		}
-//		
-		
-		MyStack<IndexPair> stack = new MyStack<IndexPair>();
-		
-		
-		
+	
 		QuickSort qs = new QuickSort();
 		
 		ArrayList<Integer> demoList = new ArrayList<Integer>();
@@ -36,14 +28,12 @@ public class Main {
 		demoList.add(4);
 
 
-		int pivotIndex = qs.partition(demoList, 0, demoList.size() - 1);
-		
+		qs.sorting(demoList);
 		
 		for(Integer number : demoList) {
-			System.out.print(number);
+			System.out.print(number + " ");
+		
 		}
-		
-		System.out.println(" pivotIndex: " + pivotIndex + " pivot: " + demoList.get(pivotIndex));
-		
+			
 	}
 }

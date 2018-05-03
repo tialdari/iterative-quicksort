@@ -1,6 +1,9 @@
 package sorting;
 
 import java.util.ArrayList;
+import stack_implementation.MyStack;
+import data.IndexPair;
+import stack_implementation.EmptyStackException;
 
 public class QuickSort {
 	
@@ -13,7 +16,7 @@ public class QuickSort {
 	
 	public int partition(ArrayList<Integer> toBeSorted, int start, int end) {
 
-		int pivot = toBeSorted.get(toBeSorted.size() - 1);						// set the pivot as the last element
+		int pivot = toBeSorted.get(end);						// set the pivot as the last element
 		
 		int pivotIndex = start;
 		
@@ -28,6 +31,35 @@ public class QuickSort {
 		swap(toBeSorted, pivotIndex, end);
 		
 		return pivotIndex;
+	}
+	
+	public void sorting(ArrayList<Integer> toBeSorted) throws EmptyStackException {
+		
+		MyStack<IndexPair> stack = new MyStack<IndexPair>();
+		
+		stack.push(new IndexPair(0, toBeSorted.size() - 1));
+		
+		
+		while(!stack.isEmpty()) {
+			
+			int start = stack.peek().getFirstIndex();
+			int end = stack.peek().getSecondIndex();
+
+			stack.pop();
+			
+			int pivotIndex = partition(toBeSorted, start, end);
+			
+			System.out.println(start + " " + end + " "+ pivotIndex);
+
+			
+			if(start < pivotIndex - 1) {
+				stack.push(new IndexPair(start, pivotIndex - 1));
+			}
+			
+			if(end > pivotIndex + 1) {
+				stack.push(new IndexPair(pivotIndex + 1, end));
+			}
+		}
 	}
 	
 }
