@@ -53,9 +53,26 @@ public class Print {
 	
 	public void printLast() throws EmptyStackException{
 		
-		qs.sorting(getSortedNumbers(), "median");
+		qs.sorting(getSortedNumbers(), "last");
 		System.out.println(String.format("nazwa pliku: %s   ilość elementów: %d   pivot: ostatni "
-				+ " maksymalna wysokość stosu: %d  liczba zamian: %d ", getName(), getSortedNumbers().size(), qs.getStack().getMaxHeight(), qs.getSwapNumber()));
+				+ " maksymalna wysokość stosu: %d  liczba zamian: %d ", getName(), getSortedNumbers().size(), 
+				qs.getStack().getMaxHeight(), qs.getSwapNumber()));
+	}
+	
+	public void printMedian() throws EmptyStackException{
+		
+		qs.sorting(getSortedNumbers(), "median");
+		System.out.println(String.format("nazwa pliku: %s   ilość elementów: %d   pivot: mediana "
+				+ " maksymalna wysokość stosu: %d  liczba zamian: %d ", getName(), getSortedNumbers().size(), 
+				qs.getStack().getMaxHeight(), qs.getSwapNumber()));
+	}
+	
+	public void printRandom() throws EmptyStackException{
+		
+		qs.sorting(getSortedNumbers(), "random");
+		System.out.println(String.format("nazwa pliku: %s   ilość elementów: %d   pivot: losowy "
+				+ " maksymalna wysokość stosu: %d  liczba zamian: %d ", getName(), getSortedNumbers().size(), 
+				qs.getStack().getMaxHeight(), qs.getSwapNumber()));
 	}
 	
 }
