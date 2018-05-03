@@ -28,15 +28,22 @@ public class Main {
 		ArrayList<Integer> demoList = new ArrayList<Integer>();
 		
 		demoList.add(1);
-		demoList.add(2);
+		demoList.add(7);
 		demoList.add(3);
+		demoList.add(8);
+		demoList.add(0);
+		demoList.add(2);
 		demoList.add(4);
-		
-		qs.swap(demoList, 0, 1);
 
+
+		int pivotIndex = qs.partition(demoList, 0, demoList.size() - 1);
+		
+		
 		for(Integer number : demoList) {
-			System.out.print(number + " ");
+			System.out.print(number);
 		}
+		
+		System.out.println(" pivotIndex: " + pivotIndex + " pivot: " + demoList.get(pivotIndex));
 		
 	}
 }
