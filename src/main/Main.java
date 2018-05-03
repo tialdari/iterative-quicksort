@@ -12,25 +12,6 @@ import sorting.Print;
 public class Main {
 	public static void main (String [] args) throws EmptyStackException{
 		
-		CSVparser parser = new CSVparser("z3data33.csv");
-		parser.read();
-		
-		
-		ArrayList<Integer> demoList = new ArrayList<Integer>();
-		
-		demoList.add(3);
-		demoList.add(6);
-		demoList.add(10);
-		demoList.add(4);
-		demoList.add(20);
-		demoList.add(100);
-		demoList.add(3);
-		demoList.add(4);
-		demoList.add(8);
-
-		
-		QuickSort qs = new QuickSort();
-	//	qs.sorting(demoList);
 		
 		Print printer11 = new Print("z3data11.csv");
 		printer11.printLast();

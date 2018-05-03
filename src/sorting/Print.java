@@ -5,7 +5,7 @@ import data.CSVparser;
 import java.util.ArrayList;
 import stack_implementation.EmptyStackException;
 
-public class Print {
+public class Print {  //klasa drukująca dane list do sortowania i wynik oraz dane dotyczące sortowania
 	
 	private String name;
 	private ArrayList<Integer> sortedNumbers;
@@ -48,10 +48,10 @@ public class Print {
 		this.sortedNumbers = sortedNumbers;
 	}
 
+	//metoda drukująca wynik sortowania, gdzie pivotem był zawsze odpowiednia: ostatni, element będący medianą trzech liczb i losowy element
 	
 	
-	
-	public void printLast() throws EmptyStackException{
+	public void printLast() throws EmptyStackException{ 
 		
 		qs.sorting(getSortedNumbers(), "last");
 		System.out.println(String.format("nazwa pliku: %s   ilość elementów: %d   pivot: ostatni "

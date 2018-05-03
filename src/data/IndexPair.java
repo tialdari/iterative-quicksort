@@ -2,7 +2,7 @@ package data;
 
 import data.CSVparser;
 
-public class IndexPair {
+public class IndexPair {     // klasa, która przechowuje pary indeksów końców przedziału danego froagmentu listy
 	
 	private int firstIndex;
 	private int secondIndex;

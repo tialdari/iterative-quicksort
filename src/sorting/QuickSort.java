@@ -6,7 +6,7 @@ import data.IndexPair;
 import stack_implementation.EmptyStackException;
 import java.util.Random;
 
-public class QuickSort {
+public class QuickSort { //
 	
 	private MyStack<IndexPair> stack;
 	private int swapNumber;
@@ -39,7 +39,7 @@ public class QuickSort {
 		this.stack = stack;
 	}
 
-	public void swap(ArrayList<Integer> toBeSorted, int firstIndex, int secondIndex) {
+	public void swap(ArrayList<Integer> toBeSorted, int firstIndex, int secondIndex) { //metoda zamieniająca liczby na podanych indeksach miejscami
 		
 		swapNumber++;
 		int temporary = toBeSorted.get(firstIndex);
@@ -47,14 +47,16 @@ public class QuickSort {
 		toBeSorted.set(secondIndex, temporary);
 	}
 	
-	public int partition(ArrayList<Integer> toBeSorted, int start, int end, String pivotChoice) {
+	public int partition(ArrayList<Integer> toBeSorted, int start, int end, String pivotChoice) { 
+		//metoda ustawiająca wszystkie liczb mniejsze od pivota na lewo i większe na prawo i zwracająca jego indeks
 		
 		int pivot;
 		int temporary;
 		
+		//dla danego przedziału ArrayListy wyznaczamy pivota wg danego kryterium 
+		//na początku przenosimy pivot na koniec listy (w przypadku wyboru pivota jako ostatni element dzieje się to z definicji
 		
-		if(pivotChoice == "last") {					//dla danego przedziału ArrayListy wyznaczamy pivota wg danego kryterium
-			
+		if(pivotChoice == "last") {					
 			pivot = toBeSorted.get(end);				
 	 
 		}else if(pivotChoice == "random") {
@@ -83,12 +85,14 @@ public class QuickSort {
 		}
 		
 		
+		//przechodzimy przez dany fragment listy ustawiając liczby mniejsze lub równe od pivota na lewo od niego
+		
 		int pivotIndex = start;
 		
 		for (int i = start; i < end; i ++) {
 			
 			if(toBeSorted.get(i) <= pivot) {
-				swap(toBeSorted, i, pivotIndex);				//at the first index nothing happens, since i and pivotIndex are the same index
+				swap(toBeSorted, i, pivotIndex);				
 				pivotIndex++;
 			}
 		}
@@ -100,7 +104,11 @@ public class QuickSort {
 	
 	public void sorting(ArrayList<Integer> toBeSorted, String pivotChoice) throws EmptyStackException {
 		
-		 stack = new MyStack<IndexPair>();
+		//na początku na wierzch stosu odkładamy parę indeksów początkowego i końcowego, 
+		//później indeksy fragmentów na lewo i prawo of pivota itd.
+		//zawsze zdejmujemy ostatnio odłożoną parę i dzielimy na kolejne fragmenty
+		
+		stack = new MyStack<IndexPair>();
 		
 		stack.push(new IndexPair(0, toBeSorted.size() - 1));
 		stack.setMaxHeight(1);
