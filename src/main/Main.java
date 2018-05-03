@@ -32,8 +32,8 @@ public class Main {
 		QuickSort qs = new QuickSort();
 	//	qs.sorting(demoList);
 		
-		Print print = new Print("z3data33.csv");
-	
+		Print print11 = new Print("z3data11.csv");
+		print.printLast();
 		
 	
 		

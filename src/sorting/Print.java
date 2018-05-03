@@ -9,6 +9,27 @@ public class Print {
 	
 	private String name;
 	private ArrayList<Integer> sortedNumbers;
+	private QuickSort qs;
+	
+	public Print() {
+		CSVparser parser = new CSVparser("z3data11.csv");
+		parser.read();
+		qs = new QuickSort();
+		try{
+			qs.sorting(parser.getFileData(), "last");
+		}catch(EmptyStackException ex) {}
+		
+		sortedNumbers = parser.getFileData();
+	}
+	
+	public Print(String name) {
+		this.name = name;
+		CSVparser parser = new CSVparser(name);
+		parser.read();
+		qs = new QuickSort();
+		
+		sortedNumbers = parser.getFileData();
+	}
 	
 	
 	public String getName() {
@@ -27,33 +48,14 @@ public class Print {
 		this.sortedNumbers = sortedNumbers;
 	}
 
-	public Print() {
-		CSVparser parser = new CSVparser("z3data11.csv");
-		parser.read();
-		QuickSort qs = new QuickSort();
-		try{
-			qs.sorting(parser.getFileData());
-		}catch(EmptyStackException ex) {}
-		
-		sortedNumbers = parser.getFileData();
-	}
-	
-	public Print(String name) {
-		CSVparser parser = new CSVparser(name);
-		parser.read();
-		QuickSort qs = new QuickSort();
-		try{
-			qs.sorting(parser.getFileData());
-		}catch(EmptyStackException ex) {}
-		
-		sortedNumbers = parser.getFileData();
-	}
 	
 	
-	public void print() {
+	
+	public void printLast() throws EmptyStackException{
 		
-		System.out.println(String.format("nazwa pliku: %f \n ilość elementów: %d \n %d", getName(), getSortedNumbers().size()));
-		
+		qs.sorting(getSortedNumbers(), "median");
+		System.out.println(String.format("nazwa pliku: %s   ilość elementów: %d   pivot: ostatni "
+				+ " maksymalna wysokość stosu: %d  liczba zamian: %d ", getName(), getSortedNumbers().size(), qs.getStack().getMaxHeight(), qs.getSwapNumber()));
 	}
 	
 }

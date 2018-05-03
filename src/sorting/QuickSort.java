@@ -8,8 +8,40 @@ import java.util.Random;
 
 public class QuickSort {
 	
+	private MyStack<IndexPair> stack;
+	private int swapNumber;
+	
+	public QuickSort() {
+		stack = new MyStack<IndexPair>();
+		swapNumber = 0;
+	}
+	
+	public QuickSort(MyStack<IndexPair> stack, int swapNumber) {
+		stack = new MyStack<IndexPair>();
+		swapNumber = 0;
+	}
+	
+	
+	public int getSwapNumber() {
+		return swapNumber;
+	}
+	
+	public void setSwapNumber(int swapNumber) {
+		this.swapNumber = swapNumber;
+	}
+
+
+	public MyStack<IndexPair> getStack() {
+		return stack;
+	}
+
+	public void setStack(MyStack<IndexPair> stack) {
+		this.stack = stack;
+	}
+
 	public void swap(ArrayList<Integer> toBeSorted, int firstIndex, int secondIndex) {
 		
+		swapNumber++;
 		int temporary = toBeSorted.get(firstIndex);
 		toBeSorted.set(firstIndex, toBeSorted.get(secondIndex));
 		toBeSorted.set(secondIndex, temporary);
@@ -66,9 +98,9 @@ public class QuickSort {
 		return pivotIndex;
 	}
 	
-	public void sorting(ArrayList<Integer> toBeSorted) throws EmptyStackException {
+	public void sorting(ArrayList<Integer> toBeSorted, String pivotChoice) throws EmptyStackException {
 		
-		MyStack<IndexPair> stack = new MyStack<IndexPair>();
+		 stack = new MyStack<IndexPair>();
 		
 		stack.push(new IndexPair(0, toBeSorted.size() - 1));
 		stack.setMaxHeight(1);
@@ -85,13 +117,8 @@ public class QuickSort {
 
 			stack.pop();
 			
-			
-			
-			int pivotIndex = partition(toBeSorted, start, end, "median");
-			
-			//System.out.println(start + " " + end + " "+ pivotIndex);
-
-			
+			int pivotIndex = partition(toBeSorted, start, end, pivotChoice);
+		
 			if(start < pivotIndex - 1) {
 				stack.push(new IndexPair(start, pivotIndex - 1));
 			}
@@ -101,7 +128,6 @@ public class QuickSort {
 			}
 		}
 		
-		System.out.println("stack max size: " + stack.getMaxHeight());
 	}
 	
 	public int pivotMedian(ArrayList<Integer> toBeSorted, int lowIndex, int highIndex) {		//wylicza pivota będącego medianą liczb: 
