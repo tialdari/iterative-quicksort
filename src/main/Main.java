@@ -2,9 +2,10 @@ package main;
 
 import data.CSVparser;
 import stack_implementation.MyStack;
-import stack_implementation.IStack;
 import data.IndexPair;
 import stack_implementation.EmptyStackException;
+import sorting.QuickSort;
+import java.util.ArrayList;
 
 
 public class Main {
@@ -18,12 +19,24 @@ public class Main {
 //		}
 //		
 		
-		MyStack stack = new MyStack<IndexPair>();
+		MyStack<IndexPair> stack = new MyStack<IndexPair>();
 		
-		IndexPair ip = new IndexPair(1, 4);
-		stack.push(ip);
-		System.out.println(((IndexPair) stack.pop()).getFirstIndex());
+		
+		
+		QuickSort qs = new QuickSort();
+		
+		ArrayList<Integer> demoList = new ArrayList<Integer>();
+		
+		demoList.add(1);
+		demoList.add(2);
+		demoList.add(3);
+		demoList.add(4);
+		
+		qs.swap(demoList, 0, 1);
 
+		for(Integer number : demoList) {
+			System.out.print(number + " ");
+		}
 		
 	}
 }
