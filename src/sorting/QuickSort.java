@@ -71,14 +71,21 @@ public class QuickSort {
 		MyStack<IndexPair> stack = new MyStack<IndexPair>();
 		
 		stack.push(new IndexPair(0, toBeSorted.size() - 1));
+		stack.setMaxHeight(1);
 		
 		
 		while(!stack.isEmpty()) {
 			
 			int start = stack.peek().getFirstIndex();
 			int end = stack.peek().getSecondIndex();
+			
+			if(stack.size() > stack.getMaxHeight()) {
+				stack.setMaxHeight(stack.size());
+			}
 
 			stack.pop();
+			
+			
 			
 			int pivotIndex = partition(toBeSorted, start, end, "median");
 			
@@ -93,6 +100,8 @@ public class QuickSort {
 				stack.push(new IndexPair(pivotIndex + 1, end));
 			}
 		}
+		
+		System.out.println("stack max size: " + stack.getMaxHeight());
 	}
 	
 	public int pivotMedian(ArrayList<Integer> toBeSorted, int lowIndex, int highIndex) {		//wylicza pivota będącego medianą liczb: 
@@ -129,5 +138,8 @@ public class QuickSort {
 		}	
 		return pivotMedian;
 	}
+	
+	
+
 	
 }

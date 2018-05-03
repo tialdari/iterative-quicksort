@@ -6,10 +6,12 @@ import stack_implementation.EmptyStackException;
 public class MyStack<T> implements IStack<T>{  //modified class name due to the existence of a Stack<T> class in java API already
 	
 	private ArrayList<T> stack;
+	private int maxHeight;
 	
 	
 	public MyStack() {
 		stack = new ArrayList<T>();
+		maxHeight = 0;
 	}
 
 	
@@ -21,6 +23,18 @@ public class MyStack<T> implements IStack<T>{  //modified class name due to the 
 	public void setStack(ArrayList<T> stack) {
 		this.stack = stack;
 	}
+	
+	
+
+	public int getMaxHeight() {
+		return maxHeight;
+	}
+
+
+	public void setMaxHeight(int maxHeight) {
+		this.maxHeight = maxHeight;
+	}
+
 
 	public boolean isEmpty() {
 		if(stack.size() == 0) return true;
@@ -44,6 +58,7 @@ public class MyStack<T> implements IStack<T>{  //modified class name due to the 
 	
 	public void push(T t) {
 		stack.add(t);
+		
 	}
 	
 	public int size() {

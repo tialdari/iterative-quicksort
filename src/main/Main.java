@@ -6,6 +6,7 @@ import data.IndexPair;
 import stack_implementation.EmptyStackException;
 import sorting.QuickSort;
 import java.util.ArrayList;
+import sorting.Print;
 
 
 public class Main {
@@ -14,34 +15,29 @@ public class Main {
 		CSVparser parser = new CSVparser("z3data33.csv");
 		parser.read();
 		
-	
-		QuickSort qs = new QuickSort();
-		
 		
 		ArrayList<Integer> demoList = new ArrayList<Integer>();
 		
-		demoList.add(2);
-		demoList.add(7);
+		demoList.add(3);
+		demoList.add(6);
 		demoList.add(10);
-		demoList.add(11);
-		demoList.add(24);
+		demoList.add(4);
+		demoList.add(20);
+		demoList.add(100);
+		demoList.add(3);
+		demoList.add(4);
 		demoList.add(8);
-		demoList.add(10);
-		demoList.add(1);
-		demoList.add(0);
-		demoList.add(15);
 
-
-
-		qs.sorting(demoList);
+		
+		QuickSort qs = new QuickSort();
+	//	qs.sorting(demoList);
+		
+		Print print = new Print("z3data33.csv");
+	
 		
 	
 		
-		
-		for(Integer number : demoList) {
-			System.out.print(number + " ");
-		
-		}
+	
 		
 	}
 }
