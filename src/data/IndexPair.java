@@ -19,7 +19,6 @@ public class IndexPair {
 	}
 	
 	
-	
 	public int getFirstIndex() {
 		return firstIndex;
 	}

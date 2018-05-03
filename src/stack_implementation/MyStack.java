@@ -28,11 +28,17 @@ public class MyStack<T> implements IStack<T>{  //modified class name due to the 
 	}
 	
 			
-	public T pop() throws EmptyStackException{
+	public T peek() throws EmptyStackException{
 		
 		int lastIndex = stack.size() - 1;
 		
 		if(!isEmpty()) return stack.get(lastIndex);
+		else throw new EmptyStackException();
+	}
+	
+	public void pop() throws EmptyStackException{
+		
+		if(!isEmpty()) stack.remove(size() - 1);
 		else throw new EmptyStackException();
 	}
 	
