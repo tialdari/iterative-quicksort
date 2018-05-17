@@ -53,6 +53,7 @@ public class Print {  //klasa drukująca dane list do sortowania i wynik oraz da
 	
 	public void printLast() throws EmptyStackException{ 
 		
+		qs.setSwapNumber(0);
 		qs.sorting(getSortedNumbers(), "last");
 		System.out.println(String.format("nazwa pliku: %s   ilość elementów: %d   pivot: ostatni "
 				+ " maksymalna wysokość stosu: %d  liczba zamian: %d ", getName(), getSortedNumbers().size(), 
@@ -61,18 +62,22 @@ public class Print {  //klasa drukująca dane list do sortowania i wynik oraz da
 	
 	public void printMedian() throws EmptyStackException{
 		
+		qs.setSwapNumber(0);
 		qs.sorting(getSortedNumbers(), "median");
 		System.out.println(String.format("nazwa pliku: %s   ilość elementów: %d   pivot: mediana "
 				+ " maksymalna wysokość stosu: %d  liczba zamian: %d ", getName(), getSortedNumbers().size(), 
 				qs.getStack().getMaxHeight(), qs.getSwapNumber()));
+
 	}
 	
 	public void printRandom() throws EmptyStackException{
 		
+		qs.setSwapNumber(0);
 		qs.sorting(getSortedNumbers(), "random");
 		System.out.println(String.format("nazwa pliku: %s   ilość elementów: %d   pivot: losowy "
 				+ " maksymalna wysokość stosu: %d  liczba zamian: %d ", getName(), getSortedNumbers().size(), 
 				qs.getStack().getMaxHeight(), qs.getSwapNumber()));
+
 	}
 	
 }

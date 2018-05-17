@@ -50,6 +50,7 @@ public class QuickSort { //
 	public int partition(ArrayList<Integer> toBeSorted, int start, int end, String pivotChoice) { 
 		//metoda ustawiająca wszystkie liczb mniejsze od pivota na lewo i większe na prawo i zwracająca jego indeks
 		
+		
 		int pivot;
 		int temporary;
 		
